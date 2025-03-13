@@ -38,6 +38,11 @@
                     </span>
                 </div>
             </div>
+            
+            <!-- Flecha de scroll -->
+            <div class="scroll-arrow">
+                <i data-lucide="chevron-down" class="bounce-arrow"></i>
+            </div>
         </div>
     </section>
 
@@ -79,6 +84,12 @@
             } else {
                 presentation.classList.remove("navbar");
             }
+        });
+        
+        // Función para scroll suave al hacer clic en la flecha
+        document.querySelector('.scroll-arrow').addEventListener('click', function() {
+            const infoSection = document.querySelector('.info');
+            infoSection.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
