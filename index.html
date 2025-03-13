@@ -12,7 +12,7 @@
     <section class="presentation" id="presentation">
         <div class="container">
             <div class="profile-section">
-                <div class="profile-pic"></div>
+                <img src="src/images/profile.jpeg" alt="" class="profile-pic">
                 <h1 class="name">Hugo Baeza</h1>
             </div>
             
@@ -34,7 +34,7 @@
                         <i data-lucide="github" class="icon"></i>
                     </div>
                     <span class="contact-info">
-                        <a href="https://github.com/hugovfx" target="_blank">Hugo Baeza</a>
+                        <a href="https://github.com/hugovfx" target="_blank">hugovfx</a>
                     </span>
                 </div>
             </div>
@@ -55,42 +55,6 @@
         </div>
     </section>
 
-    <script>
-        // Inicializar los iconos de Lucide
-        lucide.createIcons();
-        
-        function toggleExpand(element) {
-            // Verifica si el elemento ya está expandido
-            const isExpanded = element.classList.contains('expanded');
-            
-            // Colapsa todos los elementos
-            let contactItems = document.querySelectorAll('.contact-item');
-            contactItems.forEach(item => {
-                item.classList.remove('expanded');
-            });
-            
-            // Si no estaba expandido, lo expande
-            if (!isExpanded) {
-                element.classList.add('expanded');
-            }
-        }
-
-        // Detectar el scroll para convertir la sección en navbar
-        window.addEventListener("scroll", function () {
-            let presentation = document.getElementById("presentation");
-            
-            if (window.scrollY > 50) {
-                presentation.classList.add("navbar");
-            } else {
-                presentation.classList.remove("navbar");
-            }
-        });
-        
-        // Función para scroll suave al hacer clic en la flecha
-        document.querySelector('.scroll-arrow').addEventListener('click', function() {
-            const infoSection = document.querySelector('.info');
-            infoSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
+    <script src="src/scripts/script.js"></script>
 </body>
 </html>

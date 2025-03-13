@@ -1,20 +1,4 @@
-/* Scrollbar personalizada */
-::-webkit-scrollbar {
-    width: 8px; 
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
-
-::-webkit-scrollbar-thumb {
-    background: #8b00bd;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #954ded;
-}* {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -62,13 +46,14 @@ body {
 }
 
 .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background-color: #d1d1d1;
     margin: 0 auto 20px;
     border: 5px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
+    object-fit: cover;
 }
 
 .contact {
@@ -103,6 +88,9 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Iconos */
@@ -116,9 +104,10 @@ body {
     opacity: 0;
     font-size: 14px;
     transition: all 0.3s ease;
-    padding-left: 10px;
     max-width: 0;
     overflow: hidden;
+    position: absolute;
+    left: 50px; /* Colocarlo fuera del contenedor circular inicialmente */
 }
 
 .contact-info a {
@@ -135,17 +124,20 @@ body {
     .contact-item:hover {
         width: auto;
         border-radius: 25px;
-        padding: 0 20px;
+        padding: 0 20px 0 50px; /* Padding a la derecha y espacio para el icono */
     }
     
     .contact-item:hover .icon-container {
-        width: auto;
-        margin-right: 10px;
+        width: 50px;
+        position: absolute;
+        left: 0;
     }
     
     .contact-item:hover .contact-info {
         opacity: 1;
         max-width: 250px;
+        position: relative;
+        left: 0;
     }
 }
 
@@ -153,17 +145,20 @@ body {
 .contact-item.expanded {
     width: auto;
     border-radius: 25px;
-    padding: 0 20px;
+    padding: 0 20px 0 50px; /* Padding a la derecha y espacio para el icono */
 }
 
 .contact-item.expanded .icon-container {
-    width: auto;
-    margin-right: 10px;
+    width: 50px;
+    position: absolute;
+    left: 0;
 }
 
 .contact-item.expanded .contact-info {
     opacity: 1;
     max-width: 250px;
+    position: relative;
+    left: 0;
 }
 
 /* Sección de información */
@@ -226,6 +221,45 @@ body {
     gap: 10px;
 }
 
+/* Flecha de scroll */
+.scroll-arrow {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.scroll-arrow:hover {
+    opacity: 1;
+}
+
+.bounce-arrow {
+    width: 40px;
+    height: 40px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Ocultar la flecha cuando se activa el navbar */
+.navbar .scroll-arrow {
+    display: none;
+}
+
 /* Estilos para móviles */
 @media (max-width: 768px) {
     .presentation {
@@ -280,45 +314,6 @@ body {
     }
 }
 
-/* Flecha de scroll */
-.scroll-arrow {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.scroll-arrow:hover {
-    opacity: 1;
-}
-
-.bounce-arrow {
-    width: 40px;
-    height: 40px;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Ocultar la flecha cuando se activa el navbar */
-.navbar .scroll-arrow {
-    display: none;
-}
-
 /* Estilos para tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
     .profile-pic {
@@ -330,4 +325,22 @@ body {
         width: 40px;
         height: 40px;
     }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #535353; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8b00bd;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #954ded;
 }
