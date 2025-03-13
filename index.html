@@ -3,65 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV</title>
+    <title>CV - Hugo Baeza</title>
     <link rel="stylesheet" href="src/css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-
     <!-- Sección principal -->
     <section class="presentation" id="presentation">
-        <div class="profile-pic"></div>
-
-        <div class="contact">
-            <div class="contact-item" onclick="toggleExpand(this)">
-                <i data-lucide="mail" class="icon"></i>
-                <span class="contact-info">victorhugobaezarocha@gmail.com</span>
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-pic"></div>
+                <h1 class="name">Hugo Baeza</h1>
             </div>
-            <div class="contact-item" onclick="toggleExpand(this)">
-                <i data-lucide="phone" class="icon"></i>
-                <span class="contact-info">+52 614 407 9665</span>
-            </div>
-            <div class="contact-item" onclick="toggleExpand(this)">
-                <i data-lucide="github" class="icon"></i>
-                <span class="contact-info">
-                    <a href="https://github.com/hugovfx" target="_blank">Hugo Baeza</a>
-                </span>
+            
+            <div class="contact">
+                <div class="contact-item" onclick="toggleExpand(this)">
+                    <div class="icon-container">
+                        <i data-lucide="mail" class="icon"></i>
+                    </div>
+                    <span class="contact-info">victorhugobaezarocha@gmail.com</span>
+                </div>
+                <div class="contact-item" onclick="toggleExpand(this)">
+                    <div class="icon-container">
+                        <i data-lucide="phone" class="icon"></i>
+                    </div>
+                    <span class="contact-info">+52 614 407 9665</span>
+                </div>
+                <div class="contact-item" onclick="toggleExpand(this)">
+                    <div class="icon-container">
+                        <i data-lucide="github" class="icon"></i>
+                    </div>
+                    <span class="contact-info">
+                        <a href="https://github.com/hugovfx" target="_blank">Hugo Baeza</a>
+                    </span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Sección de información -->
     <section class="info">
-        <h2>Sobre mí</h2>
-        <p>Información sobre tu experiencia, estudios y habilidades...</p>
-        <div style="height: 100vh;"></div>
+        <div class="container">
+            <h2>Sobre mí</h2>
+            <p>Información sobre tu experiencia, estudios y habilidades...</p>
+            <div style="height: 100vh;"></div>
+        </div>
     </section>
 
     <script>
+        // Inicializar los iconos de Lucide
         lucide.createIcons();
-
+        
         function toggleExpand(element) {
-            // Verifica si estamos en una pantalla pequeña
-            if (window.innerWidth <= 768) {
-                // Colapsa todos los elementos antes de expandir el seleccionado
-                let contactItems = document.querySelectorAll('.contact-item');
-                contactItems.forEach(item => {
-                    // Si ya está expandido, lo colapsa
-                    if (item !== element && item.classList.contains('expanded')) {
-                        item.classList.remove('expanded');
-                    }
-                });
-
-                // Expande o colapsa el elemento actual
-                element.classList.toggle('expanded');
+            // Verifica si el elemento ya está expandido
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Colapsa todos los elementos
+            let contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.classList.remove('expanded');
+            });
+            
+            // Si no estaba expandido, lo expande
+            if (!isExpanded) {
+                element.classList.add('expanded');
             }
         }
 
         // Detectar el scroll para convertir la sección en navbar
         window.addEventListener("scroll", function () {
             let presentation = document.getElementById("presentation");
-
+            
             if (window.scrollY > 50) {
                 presentation.classList.add("navbar");
             } else {
@@ -69,6 +81,5 @@
             }
         });
     </script>
-
 </body>
 </html>

@@ -1,38 +1,66 @@
-body {
-    background-color: #ffffff;
-    color: #000000;
+* {
+    box-sizing: border-box;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 0;
 }
 
+body {
+    background-color: #ffffff;
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sección de presentación */
 .presentation {
     width: 100%;
     height: 100vh;
     background-color: rgb(146, 96, 165);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    color: white;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.name {
+    margin: 15px 0;
+    font-size: 2rem;
+    text-align: center;
 }
 
 .profile-pic {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    background-color: grey;
-    margin-bottom: 20px;
+    background-color: #d1d1d1;
+    margin: 0 auto 20px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
 }
 
 .contact {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .contact-item {
@@ -41,21 +69,30 @@ body {
     justify-content: center;
     background-color: #8b00bd;
     color: white;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 /* Iconos */
 .contact-item .icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     transition: transform 0.3s ease;
 }
 
@@ -68,84 +105,190 @@ body {
     overflow: hidden;
 }
 
-.contact-item:hover {
-    width: auto;
-    border-radius: 30px;
-    padding: 10px 20px;
-    justify-content: flex-start;
+.contact-info a {
+    color: white;
+    text-decoration: none;
 }
 
-.contact-item:hover .contact-info {
-    opacity: 1;
-    max-width: 200px;
+.contact-info a:hover {
+    text-decoration: underline;
 }
 
+/* Efectos hover en escritorio */
+@media (min-width: 769px) {
+    .contact-item:hover {
+        width: auto;
+        border-radius: 25px;
+        padding: 0 20px;
+    }
+    
+    .contact-item:hover .icon-container {
+        width: auto;
+        margin-right: 10px;
+    }
+    
+    .contact-item:hover .contact-info {
+        opacity: 1;
+        max-width: 250px;
+    }
+}
+
+/* Efecto expandido para todos los dispositivos */
 .contact-item.expanded {
     width: auto;
-    border-radius: 30px;
-    padding: 10px 20px;
-    justify-content: flex-start;
+    border-radius: 25px;
+    padding: 0 20px;
+}
+
+.contact-item.expanded .icon-container {
+    width: auto;
+    margin-right: 10px;
 }
 
 .contact-item.expanded .contact-info {
     opacity: 1;
-    max-width: 200px;
+    max-width: 250px;
 }
 
+/* Sección de información */
 .info {
     width: 100%;
-    padding: 50px 20px;
-    background-color: rgb(232, 232, 232);
+    padding: 60px 0;
+    background-color: rgb(245, 245, 245);
+    text-align: center;
 }
 
+.info h2 {
+    margin-bottom: 20px;
+    color: #8b00bd;
+}
+
+/* Navbar en scroll */
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%;
-    height: 10vh;
+    height: 70px;
     background-color: rgb(146, 96, 165);
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    padding: 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar .profile-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+    margin-right: 30px;
 }
 
 .navbar .profile-pic {
     width: 40px;
     height: 40px;
+    margin: 0 15px 0 0;
+    border-width: 2px;
+}
+
+.navbar .name {
+    display: block;
     margin: 0;
+    font-size: 1.25rem;
 }
 
 .navbar .contact {
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+    margin: 0;
+    gap: 10px;
 }
 
+/* Estilos para móviles */
 @media (max-width: 768px) {
+    .presentation {
+        padding: 20px 0;
+    }
+    
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .name {
+        font-size: 1.5rem;
+    }
+    
     .contact {
         flex-direction: column;
+        align-items: center;
     }
-
+    
     .navbar {
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+    
+    .navbar .profile-section {
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .navbar .contact {
         flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .navbar .contact-item {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .navbar .contact-item .icon {
+        width: 20px;
+        height: 20px;
     }
 }
 
+/* Estilos para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .profile-pic {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .navbar .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Scrollbar personalizada */
 ::-webkit-scrollbar {
-    width: 10px; 
+    width: 8px; 
 }
 
 ::-webkit-scrollbar-track {
-    background: #565656; 
+    background: #f1f1f1; 
 }
 
 ::-webkit-scrollbar-thumb {
     background: #8b00bd;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
