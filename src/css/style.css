@@ -106,6 +106,7 @@ body {
     overflow: hidden;
     position: absolute;
     left: 50px;
+    cursor: pointer;
 }
 
 .contact-info a {
@@ -141,7 +142,6 @@ body {
     padding: 60px 0;
     background-color: rgb(245, 245, 245);
     text-align: center;
-    margin-top: 10vh;
 }
 
 .info h2 {
@@ -230,6 +230,27 @@ body {
 
 .navbar .scroll-arrow {
     display: none;
+}
+
+.copy-tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 @media (max-width: 768px) {
