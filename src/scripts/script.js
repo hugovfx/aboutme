@@ -70,3 +70,4 @@ document.getElementById('phone-info').addEventListener('click', function(e) {
     e.stopPropagation();
     copyToClipboard('+52 614 407 9665', this.parentNode);
 });
+
