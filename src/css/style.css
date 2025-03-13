@@ -45,8 +45,8 @@ body {
 }
 
 .profile-pic {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     background-color: #d1d1d1;
     margin: 0 auto 20px;
@@ -179,16 +179,16 @@ body {
     flex-wrap: wrap;
     list-style-type: none; 
     padding: 0;
-    gap: 15px; 
+    gap: 10px; 
     justify-content: center;
 }
 
 .skills-list li {
     background-color: #f0f0f0;
-    padding: 10px 20px;
+    padding: 8px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
@@ -227,8 +227,8 @@ body {
 }
 
 .navbar .profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin: 0 15px 0 0;
     border-width: 2px;
 }
@@ -373,8 +373,8 @@ body {
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .profile-pic {
-        width: 130px;
-        height: 130px;
+        width: 160px;
+        height: 160px;
     }
     
     .navbar .profile-pic {
