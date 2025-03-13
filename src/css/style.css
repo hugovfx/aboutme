@@ -19,7 +19,6 @@ body {
     padding: 0 20px;
 }
 
-/* Sección de presentación */
 .presentation {
     width: 100%;
     height: 100vh;
@@ -93,7 +92,6 @@ body {
     left: 0;
 }
 
-/* Iconos */
 .contact-item .icon {
     width: 24px;
     height: 24px;
@@ -107,7 +105,7 @@ body {
     max-width: 0;
     overflow: hidden;
     position: absolute;
-    left: 50px; /* Colocarlo fuera del contenedor circular inicialmente */
+    left: 50px;
 }
 
 .contact-info a {
@@ -119,33 +117,10 @@ body {
     text-decoration: underline;
 }
 
-/* Efectos hover en escritorio */
-@media (min-width: 769px) {
-    .contact-item:hover {
-        width: auto;
-        border-radius: 25px;
-        padding: 0 20px 0 50px; /* Padding a la derecha y espacio para el icono */
-    }
-    
-    .contact-item:hover .icon-container {
-        width: 50px;
-        position: absolute;
-        left: 0;
-    }
-    
-    .contact-item:hover .contact-info {
-        opacity: 1;
-        max-width: 250px;
-        position: relative;
-        left: 0;
-    }
-}
-
-/* Efecto expandido para todos los dispositivos */
 .contact-item.expanded {
     width: auto;
     border-radius: 25px;
-    padding: 0 20px 0 50px; /* Padding a la derecha y espacio para el icono */
+    padding: 0 20px 0 50px;
 }
 
 .contact-item.expanded .icon-container {
@@ -161,12 +136,12 @@ body {
     left: 0;
 }
 
-/* Sección de información */
 .info {
     width: 100%;
     padding: 60px 0;
     background-color: rgb(245, 245, 245);
     text-align: center;
+    margin-top: 10vh;
 }
 
 .info h2 {
@@ -174,7 +149,6 @@ body {
     color: #8b00bd;
 }
 
-/* Navbar en scroll */
 .navbar {
     position: fixed;
     top: 0;
@@ -221,7 +195,6 @@ body {
     gap: 10px;
 }
 
-/* Flecha de scroll */
 .scroll-arrow {
     position: absolute;
     bottom: 40px;
@@ -255,12 +228,10 @@ body {
     }
 }
 
-/* Ocultar la flecha cuando se activa el navbar */
 .navbar .scroll-arrow {
     display: none;
 }
 
-/* Estilos para móviles */
 @media (max-width: 768px) {
     .presentation {
         padding: 20px 0;
@@ -314,7 +285,6 @@ body {
     }
 }
 
-/* Estilos para tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
     .profile-pic {
         width: 130px;
@@ -327,7 +297,6 @@ body {
     }
 }
 
-/* Scrollbar personalizada */
 ::-webkit-scrollbar {
     width: 8px; 
 }
